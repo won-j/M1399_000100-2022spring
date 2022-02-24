@@ -1,13 +1,10 @@
-# M1399.000100 Computational Statistics @ SNU 2021
+# M1399.000100 Computational Statistics @ SNU 2022
 
-This is the course website for M1399.000100: "Computational Statistics" at Seoul National University in Spring 2021. Assignments, lecture notes, and open source code will all be available on this website.
+This is the course website for M1399.000100: "Computational Statistics" at Seoul National University in Spring 2022. Assignments, lecture notes, and open source code will all be available on this website.
 
 ## Announcements
 
-- 2021-05-28: Homework 4 has been posted.
-- 2021-05-22: Homework 3 deadline has been extended to 2021-05-26
-- 2021-04-14: Lecture notes for "iterative methods for linear systems" has been updated.
-- 2021-04-14: Hint for Homework 2 Q3-4 has been revised.
+TBA.
 
 ## Instructor 
 
@@ -55,21 +52,21 @@ The following schedule is tentative, and is subject to change over the course.
 
 | Week | Topic | Textbook Chapter | Assignment | Due Date |
 |---| --- | --- | --- | --- | 
-| 1 (3/2)           | Computer Arithmetic [[notebook](./lectures/lecture1/arith.ipynb)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture1%2Farith.ipynb) | - | [Homework 1](./homework/hw1.md) | 2021-03-28 | 
-| 2 (3/8, 3/10)     | Computer Arithmetic | - |  |  |
-| 3 (3/15, 3/17)    | Direct methods for linear systems: LU decomposition [[notebook](./lectures/lecture2/gelu.ipynb)] [[example](./lectures/lecture2/gelu.pdf)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture2%2Fgelu.ipynb) | 2장 |  |  |
-| 4 (3/22, 3/24)    | Direct methods for linear systems: LU decomposition | 2장 |  |  |
-| 5 (3/29, 3/31)    | Direct methods for linear systems: Cholesky decomposition [[notebook](./lectures/lecture3/chol.ipynb)] [![binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/m1399_000100-2021spring/HEAD?filepath=lectures%2flecture3%2fchol.ipynb) | 2장 | [Homework 2](./homework/hw2.md) [[pdf]](./homework/hw2.pdf) | 2021-04-25 |
-| 6 (4/5, 4/7)      | Direct methods for least squares: QR decomposition [[notebook](./lectures/lecture4/qr.ipynb)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture4%2Fqr.ipynb) | 6장 |  |  |
-| 7 (4/12, 4/14)    | Iterative methods for linear systems [[notebook]](./lectures/lecture5/iterative.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture5%2Fiterative.ipynb) | 6장 |  |  |
-| 8 (4/19, 4/21)    | Iterative methods for linear systems | 3장 |  |  |
-| 9 (4/26, 4/28)    | Solving nonlinear equations [[notebook]](./lectures/lecture6/nonlinear.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture6%2Fnonlinear.ipynb) | 3장| [Homework 3](./homework/hw3.md) [[pdf]](./homework/hw3.pdf)   | ~~2021-05-23~~ 2021-05-26 |
-| 10 (5/3)   | Optimization [[notebook]](./lectures/lecture7/optim.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture7%2Foptim.ipynb)  | 4장 |  |   |
-| 11 (5/10, 5/12)   | Optimization | 4장 |  |  |
-| 12 (5/17)         | Numerical integration [[notebook]](./lectures/lecture8/integration.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture8%2Fintegration.ipynb) | - |  |  |
-| 13 (5/24, 5/26)   | Random number generation [[notebook]](./lectures/lecture9/rng.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture9%2Frng.ipynb) | 8장 | [Homework 4](./homework/hw4.md) [[pdf]](./homework/hw4.pdf) | 2021-06-13 |
-| 14 (5/31, 6/2)    | Monte Carlo integration [[notebook]](./lectures/lecture10/mc.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2021spring/HEAD?filepath=lectures%2Flecture10%2Fmc.ipynb) | 9장 |  |  |
-| 15 (6/7, 6/9)     | Monte Carlo integration          |  |  |  |
-| 16 (6/14)         | Final Exam      |  |  |  |
+| 1 (3/2)           | Computer Arithmetic [[notebook](./lectures/lecture1/arith.ipynb)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture1%2Farith.ipynb) | - | [Homework 1]<!--(./homework/hw1.md)--> | 2022-03-27 | 
+| 2 (3/7, 3/9)     | Computer Arithmetic | - |  |  |
+| 3 (3/14, 3/16)    | Direct methods for linear systems: LU decomposition [[notebook](./lectures/lecture2/gelu.ipynb)] [[example](./lectures/lecture2/gelu.pdf)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture2%2Fgelu.ipynb) | 2장 |  |  |
+| 4 (3/21, 3/23)    | Direct methods for linear systems: LU decomposition | 2장 |  |  |
+| 5 (3/28, 3/30)    | Direct methods for linear systems: Cholesky decomposition [[notebook](./lectures/lecture3/chol.ipynb)] [![binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/m1399_000100-2022spring/HEAD?filepath=lectures%2flecture3%2fchol.ipynb) | 2장 | [Homework 2]<!--(./homework/hw2.md) [[pdf]](./homework/hw2.pdf)--> | 2022-04-24 |
+| 6 (4/4, 4/6)      | Direct methods for least squares: QR decomposition [[notebook](./lectures/lecture4/qr.ipynb)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture4%2Fqr.ipynb) | 6장 |  |  |
+| 7 (4/11, 4/13)    | Iterative methods for linear systems [[notebook]](./lectures/lecture5/iterative.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture5%2Fiterative.ipynb) | 6장 |  |  |
+| 8 (4/18, 4/20)    | Iterative methods for linear systems | 3장 |  |  |
+| 9 (4/25, 4/27)    | Solving nonlinear equations [[notebook]](./lectures/lecture6/nonlinear.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture6%2Fnonlinear.ipynb) | 3장| [Homework 3]<!--(./homework/hw3.md) [[pdf]](./homework/hw3.pdf)-->   | 2022-05-25 |
+| 10 (5/2, 5/4)   | Optimization [[notebook]](./lectures/lecture7/optim.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture7%2Foptim.ipynb)  | 4장 |  |   |
+| 11 (5/9, 5/11)   | Optimization | 4장 |  |  |
+| 12 (5/16, 5/18)         | Numerical integration [[notebook]](./lectures/lecture8/integration.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture8%2Fintegration.ipynb) | - |  |  |
+| 13 (5/23, 5/25)   | Random number generation [[notebook]](./lectures/lecture9/rng.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture9%2Frng.ipynb) | 8장 | [Homework 4]<!--(./homework/hw4.md) [[pdf]](./homework/hw4.pdf)--> | 2022-06-14 |
+| 14 (5/30, 6/1)    | Monte Carlo integration [[notebook]](./lectures/lecture10/mc.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture10%2Fmc.ipynb) | 9장 |  |  |
+| 15 (6/6, 6/8)     | Monte Carlo integration          |  |  |  |
+| 16 (6/13)         | Final Exam      |  |  |  |
 
 
