@@ -12,7 +12,7 @@ Joong-Ho (Johann) Won
 
 **Email**: wonj AT stats DOT snu DOT ac DOT kr
 
-**Class Time**: Mondays/Wednesdays 15:30 - 16:45 @ online
+**Class Time**: Mondays/Wednesdays 9:30 - 10:45 
 
 **Office Hours**: By appointment.
 
