@@ -4,7 +4,7 @@ This is the course website for M1399.000100: "Computational Statistics" at Seoul
 
 ## Announcements
 
-TBA.
+- 2022-03-04 Homework 1 has been posted.
 
 ## Instructor 
 
@@ -52,7 +52,7 @@ The following schedule is tentative, and is subject to change over the course.
 
 | Week | Topic | Textbook Chapter | Assignment | Due Date |
 |---| --- | --- | --- | --- | 
-| 1 (3/2)           | Computer Arithmetic [[notebook](./lectures/lecture1/arith.ipynb)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture1%2Farith.ipynb) | - | [Homework 1]<!--(./homework/hw1.md)--> | 2022-03-27 | 
+| 1 (3/2)           | Computer Arithmetic [[notebook](./lectures/lecture1/arith.ipynb)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture1%2Farith.ipynb) | - | [Homework 1](./homework/hw1.html) | 2022-03-27 | 
 | 2 (3/7, 3/9)     | Computer Arithmetic | - |  |  |
 | 3 (3/14, 3/16)    | Direct methods for linear systems: LU decomposition [[notebook](./lectures/lecture2/gelu.ipynb)] [[example](./lectures/lecture2/gelu.pdf)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture2%2Fgelu.ipynb) | 2장 |  |  |
 | 4 (3/21, 3/23)    | Direct methods for linear systems: LU decomposition | 2장 |  |  |
