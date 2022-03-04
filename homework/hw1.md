@@ -1,36 +1,44 @@
 ---
  title: "Homework 1"
- author: "M1399.000100, Seoul National University, Spring 2021"
- date: "Due 23:59 Sunday, 2021-03-28"
+ author: "M1399.000100, Seoul National University, Spring 2022"
+ date: "Due 23:59 Sunday, 2022-03-27"
  output: html_document
 ---
 
-# M1399.0001000 Homework 1, Spring 2021, Seoul National University
-Due 23:59 2021-03-28
+# M1399.0001000 Homework 1, Spring 2022, Seoul National University
+Due 23:59 2022-03-27
 
 #### **No late submission is accepted**. 
 
 
 ## Q1. Textbook Problems
 
-1. 심송용, 제 1장 연습문제 1.4, 1.6, 1.8.
-1. 심송용, 제 2장 연습문제 2.1, 2.2.
+1. 심송용, 제 2장 연습문제 2.1, 2.2, 2.3.
 
 
 ## Q2. Floating point
 
-1. R uses the IEEE 754 double precision in most of the platforms. 
-    + What is the number of significant digits (in base 2) for R `double`? 
-    + Denote your answer to part (a) by $p$. What is the next representative number larger than 1?
-    + We want to find the smallest number that added to 1 will give a result different from 1 (i.e., $\epsilon_{\max}$). Try adding $1/2^p$ to 1. Provide your R code and the result. Set the number of decimal digits to be displayed to 20 using \texttt{options(digits=20)}.
-    + Find $\epsilon_{\max}$ and verify $1+\epsilon_{\max}$ does give a value different from 1. Provide your R code and the result.
-    + Repeat all of the above for IEEE 754 single precision floating point numbers. (*Hint*. Use the package `float`.)
+1. In the IEEE 754 single precision format, what is the bitstring of the fractional part (mantissa) of the decimal number 0.110 in the default rounding mode, rounding to nearest, ties to even?
 
-1. In R, let `a <- 0.7`, `b <- 0.2`, and `c <- 0.1`. Make sure setting `options(digits=20)`.
-    + Test whether `(a + b) + c` equals 1. 
-    + Test whether `a + (b + c)` equals 1. 
-    + Test whether `(a + c) + b.` equals 1.
-    + Explain what you found.(*Hint* find the internal representation of these numbers).
+1. In the field of reals, the identity element $a$ of addition satisfies the following three conditions.
+    + $a = 0$ is unique.
+    + $a + x = x$ for any $x$. 
+    + $x − x = a$ for any $x$.
+Are these conditions hold for the system of floating point numbers? Discuss.
+
+1. Write an R program that computes
+$$
+    \sum_{i=1}^{\infty}i
+    .
+$$
+Will the computations overflow? If so, approximately at what value of `i`? Or will the series converge? If so, to what value, and approximately at what value of `i`? Explain the observed behavior of R in terms of the parameters of the IEEE 754 standard.
+
+1. Answer the same questions as above, but for
+$$
+    \sum_{i=1}^{\infty}\frac{1}{i}
+    .
+$$
+
 
 ## Q3. Numerical precision
 
@@ -39,7 +47,8 @@ $$
     e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dotsb
 $$
 in R. Write function `expTaylor()` that takes a double-precision floating point number `x` and executes the following.
-```R
+
+```
 	stop <- 100
 	ex <- 1
 	xi <- 1
@@ -60,17 +69,20 @@ Now let `x <- 20.0`. A correct implementation of `expTaylor()` should yield `485
 
 1. Determine the order of the error for approximating `ex` with the Taylor series for `x = 20` in terms of the number of iterations (that is, the number of terms in the Taylor series).
 
+
 		
 ## Q4. Rcpp
 
 1. In class, we used the following function
-	```r
+
+```
 	Rcpp::cppFunction('int float32bin(double x) {
     	float flx = (float) x; 
     	unsigned int binx = *((unsigned int*)&flx); 
     	return binx; 
 	}')
-	```
+```
+
 to inspect single-precision floating point numbers. 
 Figure out and explain what the included C++ code does.
 
