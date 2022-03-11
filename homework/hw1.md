@@ -18,7 +18,7 @@ Due 23:59 2022-03-27
 
 ## Q2. Floating point
 
-1. In the IEEE 754 single precision format, what is the bitstring of the fractional part (mantissa) of the decimal number 0.110 in the default rounding mode, rounding to nearest, ties to even?
+1. In the IEEE 754 single precision format, what is the bitstring of the fractional part (mantissa) of the decimal number 0.1 in the default rounding mode, rounding to nearest, ties to even?
 
 1. In the field of reals, the identity element $a$ of addition satisfies the following three conditions.
     + $a = 0$ is unique.
