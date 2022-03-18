@@ -4,6 +4,7 @@ This is the course website for M1399.000100: "Computational Statistics" at Seoul
 
 ## Announcements
 
+- 2022-03-18 Lecture notes on Computer Arithmetic has been updated.
 - 2022-03-11 There was a typo in Q2-1 of HW1. Please check the fixed version.
 - 2022-03-04 Homework 1 has been posted.
 
