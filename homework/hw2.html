@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="M1399.000100, Seoul National University, Spring 2022" />
+  <title>Homework 2</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Homework 2</h1>
+<h2 class="author">M1399.000100, Seoul National University, Spring 2022</h2>
+<h3 class="date">Due 23:59 Sunday, 2022-04-24</h3>
+</div>
+<h1 id="m1399.0001000-homework-2-spring-2022-seoul-national-university">M1399.0001000 Homework 2, Spring 2022, Seoul National University</h1>
+<p>Due 23:59 2022-04-24</p>
+<h4 id="no-late-submission-is-accepted."><strong>No late submission is accepted</strong>.</h4>
+<h2 id="q1.-lu-decomposition">Q1. LU decomposition</h2>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math">\(A\in\mathbb{R}^{n\times n}\)</span> be nonsingular. Show that <span class="math">\(A\)</span> has an LU decomposition if and only if for each <span class="math">\(k\)</span> with <span class="math">\(1\le k \le n\)</span>, the upper left <span class="math">\(k\times k\)</span> block <code>A[1:k,1:k]</code> is nonsingular. Prove that this LU decomopsition is unique.</p></li>
+<li><p>Write an R function <code>LUdecomp</code> with interface</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">LUdecomp</span>(obj, <span class="dt">tol=</span><span class="fl">1e-8</span>)</code></pre>
+<p>The decomposition <strong>must</strong> be done <em>in place</em>. That is, if <span class="math">\(A=LU \in \mathbb{R}^{n\times n}\)</span>, the <span class="math">\(U\)</span> should overwrite the upper triangular part of the input matrix <code>A</code>, and the strictly lower triangular part of <code>A</code> should be overwritten by the same part of the <span class="math">\(L\)</span> matrix computed. (Where does the diagonal part of <span class="math">\(L\)</span> go?) Since R does not allow in-place modification of atomic objects, you are recommended to use a <a href="http://adv-r.had.co.nz/R5.html">Reference Class</a> (RC) object. The RC for this homework can be declared by</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setRefClass</span>(<span class="st">&quot;LUclass&quot;</span>,
+    <span class="dt">fields =</span> <span class="kw">list</span>(
+        <span class="dt">mat =</span> <span class="st">&quot;matrix&quot;</span>,
+        <span class="dt">vec =</span> <span class="st">&quot;vector&quot;</span>
+    )
+)</code></pre>
+<p>A RC object can be created, for instance, by</p>
+<pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">1.0</span>, <span class="fl">0.667</span>, <span class="fl">0.5</span>, <span class="fl">0.333</span>), <span class="dt">nrow=</span><span class="dv">2</span>)
+b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.5</span>, <span class="fl">1.0</span>)
+obj &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;LUclass&quot;</span>, <span class="dt">mat=</span>A, <span class="dt">vec=</span>b)</code></pre>
+<p>Matrix <code>A</code> stored in <code>obj</code> can be referenced by <code>obj$mat</code>, and vector <code>b</code> can be by <code>obj$vec</code> (field <code>vec</code> is reserved for the next question).<br /><br />You must also implement partial pivoting: function <code>LUdecomp</code> must return a <code>list</code> that consists of two elements: the first element of the list is the array of the permutation indexes of the rows, and the second element is the indicator of success: if <code>A</code> is (numerically) singular, the function must return the row index where singularity occurs (where may a singularity occur in the LU decomposition?) as the second return value; otherwise return <code>0</code>. Use <code>tol</code> to determine the singularity.</p></li>
+<li><p>Using the <code>LUdecomp</code> function written above, write function <code>LUsolve0</code> that solves the linear equation <span class="math">\(Ax = b\)</span> with interface</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">LUsolve0</span>(obj) </code></pre>
+<p>again <em>in place</em>. That is, in addition to <code>A</code> overwritten by <code>LUdecomp</code>, vector <code>b</code> should be overwritten by the solution <span class="math">\(A^{-1}b\)</span>. Then, write a <a href="https://en.wikipedia.org/wiki/Wrapper_function">wrapper function</a></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">LUsolve</span>(A, b)</code></pre>
+<p>which does <strong>not</strong> alter neither <code>A</code> nor <code>b</code> but solves <span class="math">\(Ax=b\)</span> by calling <code>LUsolve0</code>. Compare your results with the R expression <code>solve(A, b)</code>.</p></li>
+</ol>
+<p>Write your functions in a separate <code>.R</code> file within your branch.</p>
+<h2 id="q2.-choleksy-decomposition">Q2. Choleksy decomposition</h2>
+<ol style="list-style-type: decimal">
+<li><p>심송용, 제 2장 연습문제 2.3</p></li>
+<li>Complete the <a href="https://github.com/won-j/M1399_000100-2022spring/blob/master/lectures/lecture3/chol.ipynb">proof of the Cholesky decomposition</a> by showing that
+<ul>
+<li><span class="math">\(\mathbf{A}_{22}\)</span> is positive definite, and</li>
+<li><span class="math">\(\mathbf{A}_{22} - \mathbf{b} \mathbf{b}^T = \mathbf{A}_{22} - a_{11}^{-1} \mathbf{a} \mathbf{a}^T\)</span> is positive definite of size <span class="math">\((n-1)\times(n-1)\)</span>.</li>
+</ul></li>
+</ol>
+<h2 id="q3.-qr-decomposition">Q3. QR decomposition</h2>
+<ol style="list-style-type: decimal">
+<li><p>심송용, 제 6장 연습문제 6.1, 6.2.</p></li>
+<li><p>From the <a href="https://github.com/won-j/M1399_000100-2022spring/blob/master/lectures/lecture4/qr.ipynb">lecture note on QR decompostion</a>, explain why classical Gram-Schmidt (<code>cgs()</code>) fails with the given matrix <code>A</code>.</p></li>
+<li><p>From the same lecture note, explain why the modified Gram-Schmidt (<code>mgs()</code>) fails with the given matrix <code>B</code>. Will the classical Gram-Schmidt succeed?</p></li>
+<li><p>Implement the Householder QR decomposition in R.</p>
+<ul>
+<li><p>The algorithm should be <strong>in-place</strong>: let the <span class="math">\(\mathbf{R}\)</span> matrix occupy the upper triangular part of the input <span class="math">\(\mathbf{X}\in\mathbf{R}^{n\times p}\)</span>. Below the diagonal place the vectors <span class="math">\(\mathbf{u}_k\)</span> that define the Householder transformation matrix <span class="math">\(\mathbf{H}_k=\mathbf{I}-2\mathbf{u}_k\mathbf{u}_k^T/\mathbf{u}_k^T\mathbf{u}_k\)</span>. By setting the first element of <span class="math">\(\mathbf{u}_k\)</span> to 1, you can fit in these vectors in <span class="math">\(\mathbf{X}\)</span>. The algorithm should return an additional vector storing the values of <span class="math">\(\mathbf{u}_k^T\mathbf{u}_k\)</span>. This is how the LAPACK routine <code>geqrf</code> is designed. Note that <span class="math">\(\mathbf{Q}\)</span> can be recovered from <span class="math">\(\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_p\)</span>. The function interface should be</p>
+<pre class="sourceCode r"><code class="sourceCode r">householder &lt;-<span class="st"> </span>function(qrobj)</code></pre>
+<p>taking a <a href="http://adv-r.had.co.nz/R5.html">Reference Class</a> (RC) object</p></li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setRefClass</span>(<span class="st">&quot;QRclass&quot;</span>,
+    <span class="dt">fields =</span> <span class="kw">list</span>(
+        <span class="dt">mat =</span> <span class="st">&quot;matrix&quot;</span>,
+        <span class="dt">vec =</span> <span class="st">&quot;vector&quot;</span>
+    )
+)</code></pre>
+<ul>
+<li>Write a separate routine</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r">recoverQ &lt;-<span class="st"> </span>function(qrobj)</code></pre>
+ <br />that recovers <span class="math">\(Q\)</span>. (<em>Hint</em>. <!--For $\mathbf{P}_i=\mathbf{I}-2\mathbf{v}_k\mathbf{v}_k^T$ with $\|\mathbf{v}_k\|=1$, $\mathbf{P}_1\mathbf{P}_2 \cdots \mathbf{P}_{n} = \mathbf{I}- \mathbf{V}\mathbf{T}\mathbf{V}^T$, where $\mathbf{V}=[\mathbf{v}_1 | \mathbf{v}_2 | \dotsb | \mathbf{v}_n]$ for some *upper triangular* matrix $\mathbf{T}$.--> <span class="math">\(\mathbf{Q}=\mathbf{Q}\mathbf{I}\)</span>.)  
+<ul>
+<li>Using your function, compute the QR decomposition of the matrices <code>A</code> and <code>B</code> of the previous question. Compare the orthogonality of the computed <span class="math">\(Q\)</span> matrix.</li>
+</ul></li>
+</ol>
+<h2 id="q4.-least-squares">Q4. Least squares</h2>
+<p>The Longley data set of labor statistics was one of the first used to test accuracy of least squares computations. This data set is available at the <a href="https://www.itl.nist.gov/div898/strd/lls/data/Longley.shtml">National Institute of Standards and Technology (NIST) website</a>, consists of one response variable (number of people employed) and six predictor variables (GNP implicit price deflator, Gross National Product, number of unemployed, number of people in the armed forces, ‘noninstitutionalized’ population <span class="math">\(\ge\)</span> 14 years of age, year) observed yearly from 1947 to 1962, and is also available in R package .</p>
+<ol style="list-style-type: decimal">
+<li>Download the data set from the NIST website, read into R, and construct a data matrix <span class="math">\(\mathbf{X}\)</span> for linear model <span class="math">\(\mathbf{y}=\mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}\)</span>. Include an intercept in your model.
+<ul>
+<li>Using the R command <code>svd()</code>, list up the 7 singular values of <span class="math">\(\mathbf{X}\)</span>. What is the condition number of <span class="math">\(\mathbf{X}\)</span>?</li>
+<li>Construct the Gram matrix <span class="math">\(\mathbf{G} = \mathbf{X}^T\mathbf{X}\)</span>. List up the 7 singular values of <span class="math">\(\mathbf{G}\)</span>. What is the condition number of <span class="math">\(\mathbf{G}\)</span>?</li>
+</ul></li>
+<li><p>Using the function you wrote for Q3, compute the regression coefficients <span class="math">\(\hat{\boldsymbol{\beta}}\)</span>, their standard errors, and variance estimate <span class="math">\(\hat{\sigma}^2\)</span>. Verify your results using the R function .</p></li>
+<li><p>Using the Cholesky decomposition of <span class="math">\(\mathbf{G}\)</span>, compute the regression coefficients <span class="math">\(\hat{\boldsymbol{\beta}}\)</span>, their standard errors, and variance estimate <span class="math">\(\hat{\sigma}^2\)</span>. Compare the results with the values of the above question.</p></li>
+</ol>
+<h2 id="q5.-iterative-method">Q5. Iterative method</h2>
+<ol style="list-style-type: decimal">
+<li><p>Show that the norm <span class="math">\(\|\mathbf{x}\|_{\delta}\)</span> in the <a href="https://github.com/won-j/M1399_000100-2022spring/blob/master/lectures/lecture5/iterative.ipynb">lecture note on iterative methods</a> is indeed a vector norm</p></li>
+<li><p>심송용, 제 3장 연습문제 3.3.</p></li>
+<li>Consider solving the linear system of equations <span class="math">\(Ax=b\)</span> using Jacobi's method, where <span class="math">\[
+A = \begin{bmatrix}
+2  &amp; -1      &amp;        &amp;        &amp;  \\
+-1 &amp; 2       &amp; -1     &amp;        &amp;  \\
+    &amp; \ddots &amp; \ddots &amp; \ddots &amp;  \\
+    &amp;        &amp; -1     &amp; 2      &amp; -1 \\
+    &amp;        &amp;        &amp; -1     &amp; 2
+\end{bmatrix}
+\in \mathbb{R}^{n\times n}.
+\]</span> Note the eigenvalues of <span class="math">\(A\)</span> are analytically given by <span class="math">\[
+\lambda_i = 2 - 2\cos\frac{i\pi}{n+1}, \quad i = 1, 2, \dotsc, n.
+\]</span>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find the spectral radius of <span class="math">\(R\)</span>, when the Jacobi iteration is written as <span class="math">\[
+x^{(k+1)} = Rx^{(k)} + c.
+\]</span> Will the iterative algorithm converge?</p></li>
+<li><p>Let the eigenvector of <span class="math">\(A\)</span> associated with the eigenvalue <span class="math">\(\lambda_i\)</span> be <span class="math">\(v_i \in \mathbb{R}^n\)</span>. Then we can express the error of the iteration as <span class="math">\[
+\varepsilon^{(k)} := x^{(k)} - x^* = a^{(k)}_1v_1 + a^{(k)}_2v_2 + \dotsb + a^{(k)}_nv_n,
+\]</span> for some scalars <span class="math">\(a^{(k)}_1,\dotsc,a^{(k)}_n\)</span>; <span class="math">\(x^*\)</span> is the true solution of <span class="math">\(Ax=b\)</span>. What can you say about the attenuation of the sequence <span class="math">\(\{a^{(k)}_i\}_{k=1,2,\dotsc}\)</span> for different values of <span class="math">\(i\)</span>?</p></li>
+</ol></li>
+</ol>
+</body>
+</html>
