@@ -4,6 +4,8 @@ This is the course website for M1399.000100: "Computational Statistics" at Seoul
 
 ## Announcements
 
+- 2022-04-01 Lecture notes on LU decomposition has been slightly updated.
+- 2022-04-01 Homework 2 has been posted.
 - 2022-03-18 Lecture notes on Computer Arithmetic has been updated.
 - 2022-03-11 There was a typo in Q2-1 of HW1. Please check the fixed version.
 - 2022-03-04 Homework 1 has been posted.
@@ -58,7 +60,7 @@ The following schedule is tentative, and is subject to change over the course.
 | 2 (3/7, 3/9)     | Computer Arithmetic | - |  |  |
 | 3 (3/14, 3/16)    | Direct methods for linear systems: LU decomposition [[notebook](./lectures/lecture2/gelu.ipynb)] [[example](./lectures/lecture2/gelu.pdf)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture2%2Fgelu.ipynb) | 2장 |  |  |
 | 4 (3/21, 3/23)    | Direct methods for linear systems: LU decomposition | 2장 |  |  |
-| 5 (3/28, 3/30)    | Direct methods for linear systems: Cholesky decomposition [[notebook](./lectures/lecture3/chol.ipynb)] [![binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/m1399_000100-2022spring/HEAD?filepath=lectures%2flecture3%2fchol.ipynb) | 2장 | [Homework 2]<!--(./homework/hw2.md) [[pdf]](./homework/hw2.pdf)--> | 2022-04-24 |
+| 5 (3/28, 3/30)    | Direct methods for linear systems: Cholesky decomposition [[notebook](./lectures/lecture3/chol.ipynb)] [![binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/m1399_000100-2022spring/HEAD?filepath=lectures%2flecture3%2fchol.ipynb) | 2장 | [Homework 2](./homework/hw2.html) | 2022-04-24 |
 | 6 (4/4, 4/6)      | Direct methods for least squares: QR decomposition [[notebook](./lectures/lecture4/qr.ipynb)] [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture4%2Fqr.ipynb) | 6장 |  |  |
 | 7 (4/11, 4/13)    | Iterative methods for linear systems [[notebook]](./lectures/lecture5/iterative.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture5%2Fiterative.ipynb) | 6장 |  |  |
 | 8 (4/18, 4/20)    | Iterative methods for linear systems | 3장 |  |  |
