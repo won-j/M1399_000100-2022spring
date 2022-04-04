@@ -224,20 +224,32 @@ Due 23:59 2022-04-24-->
 <h2 id="q1.-lu-decomposition">Q1. LU decomposition</h2>
 <ol type="1">
 <li><p>Let <span class="math inline">\(A\in\mathbb{R}^{n\times n}\)</span> be nonsingular. Show that <span class="math inline">\(A\)</span> has an LU decomposition if and only if for each <span class="math inline">\(k\)</span> with <span class="math inline">\(1\le k \le n\)</span>, the upper left <span class="math inline">\(k\times k\)</span> block <code>A[1:k,1:k]</code> is nonsingular. Prove that this LU decomopsition is unique.</p></li>
-<li><p>Write an R function <code>LUdecomp</code> with interface <code>r     LUdecomp(obj, tol=1e-8)</code> The decomposition <strong>must</strong> be done <em>in place</em>. That is, if <span class="math inline">\(A=LU \in \mathbb{R}^{n\times n}\)</span>, the <span class="math inline">\(U\)</span> should overwrite the upper triangular part of the input matrix <code>A</code>, and the strictly lower triangular part of <code>A</code> should be overwritten by the same part of the <span class="math inline">\(L\)</span> matrix computed. (Where does the diagonal part of <span class="math inline">\(L\)</span> go?) Since R does not allow in-place modification of atomic objects, you are recommended to use a <a href="http://adv-r.had.co.nz/R5.html">Reference Class</a> (RC) object. The RC for this homework can be declared by <code>r     setRefClass("LUclass",         fields = list(             mat = "matrix",             vec = "vector"         )     )</code> A RC object can be created, for instance, by <code>r     A &lt;- matrix(c(1.0, 0.667, 0.5, 0.333), nrow=2)     b &lt;- c(1.5, 1.0)     obj &lt;- new("LUclass", mat=A, vec=b)</code> Matrix <code>A</code> stored in <code>obj</code> can be referenced by <code>obj$mat</code>, and vector <code>b</code> can be by <code>obj$vec</code> (field <code>vec</code> is reserved for the next question).<br />
-<br />
-You must also implement partial pivoting: function <code>LUdecomp</code> must return a <code>list</code> that consists of two elements: the first element of the list is the array of the permutation indexes of the rows, and the second element is the indicator of success: if <code>A</code> is (numerically) singular, the function must return the row index where singularity occurs (where may a singularity occur in the LU decomposition?) as the second return value; otherwise return <code>0</code>. Use <code>tol</code> to determine the singularity.</p></li>
+<li><p>Write an R function <code>LUdecomp</code> with interface</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LUdecomp</span>(obj, <span class="at">tol=</span><span class="fl">1e-8</span>)</span></code></pre></div>
+<p>The decomposition <strong>must</strong> be done <em>in place</em>. That is, if <span class="math inline">\(A=LU \in \mathbb{R}^{n\times n}\)</span>, the <span class="math inline">\(U\)</span> should overwrite the upper triangular part of the input matrix <code>A</code>, and the strictly lower triangular part of <code>A</code> should be overwritten by the same part of the <span class="math inline">\(L\)</span> matrix computed. (Where does the diagonal part of <span class="math inline">\(L\)</span> go?) Since R does not allow in-place modification of atomic objects, you are recommended to use a <a href="http://adv-r.had.co.nz/R5.html">Reference Class</a> (RC) object.</p>
+<p>The RC for this homework can be declared by</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setRefClass</span>(<span class="st">&quot;LUclass&quot;</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">fields =</span> <span class="fu">list</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">mat =</span> <span class="st">&quot;matrix&quot;</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">vec =</span> <span class="st">&quot;vector&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>A RC object can be created, for instance, by</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">1.0</span>, <span class="fl">0.667</span>, <span class="fl">0.5</span>, <span class="fl">0.333</span>), <span class="at">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="fl">1.0</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;LUclass&quot;</span>, <span class="at">mat=</span>A, <span class="at">vec=</span>b)</span></code></pre></div>
+<p>Matrix <code>A</code> stored in <code>obj</code> can be referenced by <code>obj$mat</code>, and vector <code>b</code> can be by <code>obj$vec</code> (field <code>vec</code> is reserved for the next question).</p>
+<p>You must also implement partial pivoting: function <code>LUdecomp</code> must return a <code>list</code> that consists of two elements: the first element of the list is the array of the permutation indexes of the rows, and the second element is the indicator of success: if <code>A</code> is (numerically) singular, the function must return the row index where singularity occurs (where may a singularity occur in the LU decomposition?) as the second return value; otherwise return <code>0</code>. Use <code>tol</code> to determine the singularity.</p></li>
 <li><p>Using the <code>LUdecomp</code> function written above, write function <code>LUsolve0</code> that solves the linear equation <span class="math inline">\(Ax = b\)</span> with interface</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LUsolve0</span>(obj) </span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LUsolve0</span>(obj) </span></code></pre></div>
 <p>again <em>in place</em>. That is, in addition to <code>A</code> overwritten by <code>LUdecomp</code>, vector <code>b</code> should be overwritten by the solution <span class="math inline">\(A^{-1}b\)</span>. Then, write a <a href="https://en.wikipedia.org/wiki/Wrapper_function">wrapper function</a></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LUsolve</span>(A, b)</span></code></pre></div>
-<p>which does <strong>not</strong> alter neither <code>A</code> nor <code>b</code> but solves <span class="math inline">\(Ax=b\)</span> by calling <code>LUsolve0</code>. Compare your results with the R expression <code>solve(A, b)</code>.</p></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LUsolve</span>(A, b)</span></code></pre></div>
+<p>which does <strong>not</strong> alter neither <code>A</code> nor <code>b</code> but solves <span class="math inline">\(Ax=b\)</span> by calling <code>LUsolve0</code>. Compare your results with the R expression <code>solve(A, b)</code>.</p>
+<p>Write your functions in a separate <code>.R</code> file within your branch.</p></li>
 </ol>
-<p>Write your functions in a separate <code>.R</code> file within your branch.</p>
 <h2 id="q2.-choleksy-decomposition">Q2. Choleksy decomposition</h2>
 <ol type="1">
-<li><p>심송용, 제 2장 연습문제 2.3</p></li>
-<li><p>Complete the <a href="https://github.com/won-j/M1399_000100-2022spring/blob/master/lectures/lecture3/chol.ipynb">proof of the Cholesky decomposition</a> by showing that</p>
+<li>Complete the <a href="https://github.com/won-j/M1399_000100-2022spring/blob/master/lectures/lecture3/chol.ipynb">proof of the Cholesky decomposition</a> by showing that
 <ul>
 <li><span class="math inline">\(\mathbf{A}_{22}\)</span> is positive definite, and</li>
 <li><span class="math inline">\(\mathbf{A}_{22} - \mathbf{b} \mathbf{b}^T = \mathbf{A}_{22} - a_{11}^{-1} \mathbf{a} \mathbf{a}^T\)</span> is positive definite of size <span class="math inline">\((n-1)\times(n-1)\)</span>.</li>
@@ -252,18 +264,18 @@ You must also implement partial pivoting: function <code>LUdecomp</code> must re
 <ul>
 <li>The algorithm should be <strong>in-place</strong>: let the <span class="math inline">\(\mathbf{R}\)</span> matrix occupy the upper triangular part of the input <span class="math inline">\(\mathbf{X}\in\mathbf{R}^{n\times p}\)</span>. Below the diagonal place the vectors <span class="math inline">\(\mathbf{u}_k\)</span> that define the Householder transformation matrix <span class="math inline">\(\mathbf{H}_k=\mathbf{I}-2\mathbf{u}_k\mathbf{u}_k^T/\mathbf{u}_k^T\mathbf{u}_k\)</span>. By setting the first element of <span class="math inline">\(\mathbf{u}_k\)</span> to 1, you can fit in these vectors in <span class="math inline">\(\mathbf{X}\)</span>. The algorithm should return an additional vector storing the values of <span class="math inline">\(\mathbf{u}_k^T\mathbf{u}_k\)</span>. This is how the LAPACK routine <code>geqrf</code> is designed. Note that <span class="math inline">\(\mathbf{Q}\)</span> can be recovered from <span class="math inline">\(\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_p\)</span>. The function interface should be</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>householder <span class="ot">&lt;-</span> <span class="cf">function</span>(qrobj)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>householder <span class="ot">&lt;-</span> <span class="cf">function</span>(qrobj)</span></code></pre></div>
 <p>taking a <a href="http://adv-r.had.co.nz/R5.html">Reference Class</a> (RC) object</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setRefClass</span>(<span class="st">&quot;QRclass&quot;</span>,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">fields =</span> <span class="fu">list</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">mat =</span> <span class="st">&quot;matrix&quot;</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">vec =</span> <span class="st">&quot;vector&quot;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setRefClass</span>(<span class="st">&quot;QRclass&quot;</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">fields =</span> <span class="fu">list</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">mat =</span> <span class="st">&quot;matrix&quot;</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">vec =</span> <span class="st">&quot;vector&quot;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <ul>
 <li>Write a separate routine</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>recoverQ <span class="ot">&lt;-</span> <span class="cf">function</span>(qrobj)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>recoverQ <span class="ot">&lt;-</span> <span class="cf">function</span>(qrobj)</span></code></pre></div>
 <p> <br />
 that recovers <span class="math inline">\(Q\)</span>. (<em>Hint</em>. <!--For $\mathbf{P}_i=\mathbf{I}-2\mathbf{v}_k\mathbf{v}_k^T$ with $\|\mathbf{v}_k\|=1$, $\mathbf{P}_1\mathbf{P}_2 \cdots \mathbf{P}_{n} = \mathbf{I}- \mathbf{V}\mathbf{T}\mathbf{V}^T$, where $\mathbf{V}=[\mathbf{v}_1 | \mathbf{v}_2 | \dotsb | \mathbf{v}_n]$ for some *upper triangular* matrix $\mathbf{T}$.--> <span class="math inline">\(\mathbf{Q}=\mathbf{Q}\mathbf{I}\)</span>.)  </p>
 <ul>

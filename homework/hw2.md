@@ -5,8 +5,8 @@
  output: html_document
 ---
 
-# M1399.0001000 Homework 2, Spring 2022, Seoul National University
-Due 23:59 2022-04-24
+<!--# M1399.0001000 Homework 2, Spring 2022, Seoul National University
+Due 23:59 2022-04-24-->
 
 #### **No late submission is accepted**. 
 
@@ -16,11 +16,14 @@ Due 23:59 2022-04-24
 1. Let $A\in\mathbb{R}^{n\times n}$ be nonsingular. Show that $A$ has an LU decomposition if and only if for each $k$ with $1\le k \le n$, the upper left $k\times k$ block `A[1:k,1:k]` is nonsingular. Prove that this LU decomopsition is unique.
 
 2. Write an R function `LUdecomp` with interface 
+
     ```r
     LUdecomp(obj, tol=1e-8)
     ```
-The decomposition **must** be done *in place*. That is, if $A=LU  \in \mathbb{R}^{n\times n}$, the $U$ should overwrite the upper triangular part of the input matrix `A`, and the strictly lower triangular part of `A` should be overwritten by the same part of the $L$ matrix computed. (Where does the diagonal part of $L$ go?) Since R does not allow in-place modification of atomic objects, you are recommended to use a [Reference Class](http://adv-r.had.co.nz/R5.html) (RC) object. 
-The RC for this homework can be declared by
+    The decomposition **must** be done *in place*. That is, if $A=LU  \in \mathbb{R}^{n\times n}$, the $U$ should overwrite the upper triangular part of the input matrix `A`, and the strictly lower triangular part of `A` should be overwritten by the same part of the $L$ matrix computed. (Where does the diagonal part of $L$ go?) Since R does not allow in-place modification of atomic objects, you are recommended to use a [Reference Class](http://adv-r.had.co.nz/R5.html) (RC) object. 
+
+    The RC for this homework can be declared by
+    
 	```r
 	setRefClass("LUclass",
     	fields = list(
@@ -29,17 +32,17 @@ The RC for this homework can be declared by
     	)
 	)
 	```
-A RC object can be created, for instance, by
+    
+    A RC object can be created, for instance, by
+    
 	```r
 	A <- matrix(c(1.0, 0.667, 0.5, 0.333), nrow=2)
 	b <- c(1.5, 1.0)
 	obj <- new("LUclass", mat=A, vec=b)
 	```
-Matrix `A` stored in `obj` can be referenced by `obj$mat`, and vector `b` can be by `obj$vec`
-(field `vec` is reserved for the next question).
-\
-\
-You must also implement partial pivoting: function `LUdecomp` must return a `list` that consists of two elements:
+    Matrix `A` stored in `obj` can be referenced by `obj$mat`, and vector `b` can be by `obj$vec` (field `vec` is reserved for the next question).
+    
+    You must also implement partial pivoting: function `LUdecomp` must return a `list` that consists of two elements:
 the first element of the list is the array of the permutation indexes of the rows, 
 and the second element is the indicator of success: if `A` is (numerically) singular, the function must return the row index where singularity occurs (where may a singularity occur in the LU decomposition?) as the second return value; otherwise return `0`. Use `tol` to determine the singularity.
 
@@ -53,14 +56,11 @@ again *in place*. That is, in addition to `A` overwritten by `LUdecomp`, vector 
     ```r
     LUsolve(A, b)
     ```
-which does **not** alter neither `A` nor `b` but solves $Ax=b$ by calling `LUsolve0`. 
-Compare your results with the R expression `solve(A, b)`.
+    which does **not** alter neither `A` nor `b` but solves $Ax=b$ by calling `LUsolve0`.  Compare your results with the R expression `solve(A, b)`.
 
-Write your functions in a separate `.R` file within your branch. 
+    Write your functions in a separate `.R` file within your branch. 
 
 ## Q2. Choleksy decomposition 
-
-1. 심송용, 제 2장 연습문제 2.3
 
 1. Complete the [proof of the Cholesky decomposition](https://github.com/won-j/M1399_000100-2022spring/blob/master/lectures/lecture3/chol.ipynb) by showing that 
     * $\mathbf{A}_{22}$ is positive definite, and
