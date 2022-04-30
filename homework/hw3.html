@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="M1399.000100, Seoul National University, Spring 2022" />
+  <title>Homework 3</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Homework 3</h1>
+<p class="author">M1399.000100, Seoul National University, Spring 2022</p>
+<p class="date">Due 23:59 Sunday, 2022-05-25</p>
+</header>
+<h1 id="m1399.0001000-homework-3-spring-2022-seoul-national-university">M1399.0001000 Homework 3, Spring 2022, Seoul National University</h1>
+<p>Due 23:59 2022-05-25</p>
+<h4 id="no-late-submission-is-accepted."><strong>No late submission is accepted</strong>.</h4>
+<h2 id="q1.-contraction-map">Q1. Contraction map</h2>
+<p>Recall that function <span class="math inline">\(F: [a,b] \rightarrow [a,b]\)</span> is contractive if there exists a nonnegative constant <span class="math inline">\(L&lt;1\)</span> such that <span class="math display">\[
+|F(x) - F(y)| \le L |x-y|  
+\tag{Lip}
+\]</span> for all <span class="math inline">\(x,y \in [a,b]\)</span>.</p>
+<ol type="1">
+<li>Show that if <span class="math inline">\(F\)</span> is differentiable on <span class="math inline">\([a,b]\)</span>, then condtion (Lip) is equivalent to <span class="math display">\[
+ |F&#39;(x) | \le L
+ \]</span> for all <span class="math inline">\(x \in [a,b]\)</span>.</li>
+</ol>
+<p>Now suppose we want to find a root of a differentiable function <span class="math inline">\(f(x)\)</span> on <span class="math inline">\((a,b)\)</span>. Consider the following iteration <span class="math display">\[
+    x^{(t+1)} = x^{(t)} + \alpha  f(x^{(t)}) \quad (\alpha \neq 0).
+    \tag{Iter}
+\]</span></p>
+<ol start="2" type="1">
+<li>When does iteration (Iter) converge?</li>
+<li>Discuss the advantage of introducing the <span class="math inline">\(\alpha\)</span>.</li>
+<li>Relate iteration (Iter) with the gradient descent method for minimization of a twice differentiable function.</li>
+</ol>
+<h2 id="q2.-poisson-regression">Q2. Poisson regression</h2>
+<ol type="1">
+<li><p>In the lecture note on optimization, we used step-halving in the Fisher scoring of the Poisson regression analysis of the quarterly count data of AIDS deaths in Australia. Repeat this using the Armijo rule.</p></li>
+<li><p>In the same lecture note, it is stated that Poisson regression has the objective function <span class="math inline">\(f(\beta) = -\sum_{i=1}^n \left[ y_i \mathbf{x}_i^T \beta - \exp(\mathbf{x}_i^T \beta) - \log(y_i!) \right]\)</span> and its gradient <span class="math display">\[\begin{align*}
+ \nabla f(\beta) &amp;= -\sum_{i=1}^n \left( y_i \mathbf{x}_i - \exp(\mathbf{x}_i^T \beta)\mathbf{x}_i \right) \\
+ &amp;= -\sum_{i=1}^n (y_i - \lambda_i) \mathbf{x}_i = -\mathbf{X}^T (\mathbf{y} - \boldsymbol{\lambda})
+\end{align*}\]</span> is <em>not</em> Lipschitz continuous. Show this.</p></li>
+</ol>
+<h2 id="q3.-gradient-descent">Q3. Gradient descent</h2>
+<ol type="1">
+<li>In <span class="math inline">\(K\)</span>-class logistic regression, we observe <span class="math inline">\(n\)</span> independent categorical variables with <span class="math inline">\(K &gt; 2\)</span> categories, each associated with covariates. Let <span class="math inline">\(\mathbf{y}_i\)</span> be the <span class="math inline">\(i\)</span>th observation and <span class="math inline">\(\mathbf{x}_i \in \mathbf{R}^p\)</span> be the associated covariate vector. We use a dummy variable encoding for the response so that <span class="math inline">\(\mathbf{y}_i\)</span> is a <span class="math inline">\(K\)</span>-dimensional binary vector with only one component being 1. Let <span class="math inline">\(p_k\)</span> be the probability of the <span class="math inline">\(k\)</span>th category. We want to model the logit transform of <span class="math inline">\(p_k\)</span> as a linear function of the covariate <span class="math inline">\(\mathbf{x}_i\)</span>. Due to the constraint <span class="math inline">\(\sum_{k=1}^K p_k = 1\)</span>, we set <span class="math display">\[
+ \log\frac{p_k}{p_K} = \mathbf{x}_i^T\boldsymbol{\beta}_k
+ ,
+ \quad
+ k = 1, \dotsc, K - 1
+\]</span> and <span class="math inline">\(\boldsymbol{\beta}_K = 0\)</span>.<br />
+
+<ol type="a">
+<li>Express the log likelihood of the data in terms of the matrices <span class="math inline">\(\mathbf{Y} = (y_{ik}) \in \mathbb{R}^{n \times K}\)</span> and <span class="math inline">\(\mathbf{X} = [\mathbf{x}_1, \dotsc, \mathbf{x}_n]^T\)</span> or their components. You may ignore terms irrelevant to <span class="math inline">\(\boldsymbol{\beta}_k\)</span>.</li>
+<li>Write down a gradient ascent step for estimating coefficients <span class="math inline">\(\mathbf{B} = [\boldsymbol{\beta}_1, \dotsc, \boldsymbol{\beta}_{K-1}]\)</span>.</li>
+</ol></li>
+</ol>
+<h2 id="q4.-irls">Q4. IRLS</h2>
+<ol type="1">
+<li>A researcher is interested in how variables, such as GRE (Graduate Record Exam scores), GPA (grade point average) and prestige of the undergraduate institution, effect admission into graduate school. The response variable, admit/don’t admit, is a binary variable.  <br />
+The data is available at <a href="https://stats.idre.ucla.edu/stat/data/binary.csv" class="uri">https://stats.idre.ucla.edu/stat/data/binary.csv</a>. How to analyze these data can be found in the website <a href="https://stats.idre.ucla.edu/r/dae/logit-regression/" class="uri">https://stats.idre.ucla.edu/r/dae/logit-regression/</a>.  <br />
+Implement the iteratively reweighted least squares (IRLS) algorithm for fitting a logistic regression model, and apply your algorithm to the admission data above. Compare your result with that of</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">glm</span>(admit <span class="sc">~</span> gre <span class="sc">+</span> gpa <span class="sc">+</span> rank, <span class="at">data =</span> mydata, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
+<p>Note that the variable <code>rank</code> is categorical data.</p>
+<h2 id="q5.-newton-côtes-quadrature">Q5. Newton-Côtes quadrature</h2>
+<ol type="1">
+<li><p>Write functions <code>rectangular()</code>, <code>trapezoidal()</code>, and <code>simpson()</code>, which evaluates the integral of a given mathematical function taking a single <code>numeric</code> argument and returns a <code>numeric</code>, using the Riemann rule, the trapezoidal rule, and Simpson’s rule, respectively. An example of the function that takes a single <code>numeric</code> argument and returns a <code>numeric</code> is the R builtin function <code>exp()</code>. The three functions should share the same signature: in addition to the integrand, they should take the start and the end points of the interval of integration, and the number of points in subdivision, returning the value of the integral.</p></li>
+<li><p>Write a function <code>integral(f, a, b, n, method)</code> that evaluates the integral of function <code>f</code> from <code>a</code> to <code>b</code> using <code>n</code>-point subdivision and numerical integration method <code>method</code>. The value of <code>method</code> can be either <code>rectangular</code>, <code>trapezoidal</code>, or <code>simpson</code>. Your implementation <strong>must not use <code>switch</code></strong>. Instead, use function objects. Write two versions of each function so that one uses <code>for</code> (or <code>while</code>) loop and the other vectorizes as many as computation as possible. Put your loopy functions in <code>integral_loops.R</code> and vectorized functions in <code>integral_vec.R</code>.</p></li>
+<li><p>Use your function to evaluate <span class="math inline">\(\int_0^2 e^{-x}dx\)</span> and discuss its accuracy.</p></li>
+<li><p>Use your function to evaluate <span class="math inline">\(\int_1^{\infty}e^{-x}x^{-1/2}dx\)</span>. Note the length of the integration interval is infinite. Use the transformation <span class="math inline">\(t=1/x\)</span> to make the interval finite. Despite of this change of variable, there remains a problem. Specify what it is and how you solved this problem.</p></li>
+</ol>
+<h2 id="q6.-gauss-hermite-quadrature">Q6. Gauss-Hermite quadrature</h2>
+<ol type="1">
+<li><p>Suppose <span class="math inline">\(f\)</span> is a continuous (real-valued) function defined on the interval <span class="math inline">\([a, b]\)</span>. Weierstrass Approximation Theorem states that, for every <span class="math inline">\(\epsilon &gt; 0\)</span>, there exists a polynomial <span class="math inline">\(p\)</span> such that <span class="math inline">\(|f(x) - p(x)| &lt; \epsilon\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\([a, b]\)</span>. % Also suppose <span class="math inline">\(w\)</span> is a density function concentrated on <span class="math inline">\([a, b]\)</span>. Let <span class="math display">\[
+ Q_n(f) = \sum_{i=0}^{n-1} A_i^{(n)}f(x_i^{(n)})
+\]</span> be the sequence of Gaussian quadrature of order <span class="math inline">\(n\)</span> applied to <span class="math inline">\(f\)</span>, based on the sequence of <span class="math inline">\(w\)</span>-orthogonal polynomials <span class="math inline">\(\bar{q}_n(x)\)</span>. % Show that <span class="math display">\[
+ \lim_{n\to\infty}Q_n(f) = E[f(X)]
+ %\int_a^b f(x)w(x)dx
+ ,
+\]</span> where <span class="math inline">\(X\)</span> is a random variable whose distribution has density <span class="math inline">\(w\)</span>.</p></li>
+<li><p>Suppose <span class="math inline">\(y_1, \dotsc, y_n\)</span> are a random sample from a Poisson distribution with mean <span class="math inline">\(\lambda=\exp(\alpha)\)</span>. Suppose the prior on <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(\mathcal{N}(0,100)\)</span>. The observed data are <span class="math display">\[
+11, 19, 27, 12, 14, 11, 10, 13, 15, 10.
+\]</span> Use Gauss-Hermite quadrature to evaluate the mean and variance of the posterior distribution of <span class="math inline">\(\alpha\)</span>. Remember to make a change of variables in the integeral, if appropriate, before applying the quadrature formaulas. Give some discussion of the accuracy of these calculations. Use the function <code>guass.quad()</code> available in the R package <code>statmod</code>.</p></li>
+</ol>
+</body>
+</html>
