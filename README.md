@@ -4,6 +4,7 @@ This is the course website for M1399.000100: "Computational Statistics" at Seoul
 
 ## Announcements
 
+- 2022-04-29 Homework 3 has been posted.
 - 2022-04-01 Lecture notes on LU decomposition has been slightly updated.
 - 2022-04-01 Homework 2 has been posted.
 - 2022-03-18 Lecture notes on Computer Arithmetic has been updated.
