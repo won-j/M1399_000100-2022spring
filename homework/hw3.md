@@ -1,7 +1,7 @@
 ---
  title: "Homework 3"
  author: "M1399.000100, Seoul National University, Spring 2022"
- date: "Due 23:59 Sunday, 2022-05-25"
+ date: "Due 23:59 Wednesday, 2022-05-25"
  output: html_document
 ---
 
