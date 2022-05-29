@@ -205,14 +205,14 @@ dominates $\tilde{f}(x)$, i.e., $g(x) \ge \tilde{f}(x)$ for all $x$.
  x_{i+1} &amp;= (a x_i + c) \mod m, \quad i=1, 2, \dotsc \\
  u_i &amp;= x_i / m.
 \end{split}
-\]</span> for <span class="math inline">\(m = 2^32\)</span>, <span class="math inline">\(a = 1103515245\)</span>, <span class="math inline">\(c = 12345\)</span>, and for <span class="math inline">\(m = 2048\)</span>, <span class="math inline">\(a = 1229\)</span>, <span class="math inline">\(c = 1\)</span> respectively. Compare the two random number generators.</p></li>
+\]</span> for <span class="math inline">\(m = 2^{32}\)</span>, <span class="math inline">\(a = 1103515245\)</span>, <span class="math inline">\(c = 12345\)</span>, and for <span class="math inline">\(m = 2048\)</span>, <span class="math inline">\(a = 1229\)</span>, <span class="math inline">\(c = 1\)</span> respectively. Compare the two random number generators.</p></li>
 <li><p>In case the inverse CDF <span class="math inline">\(F^{-1}\)</span> is not exclicitly available, can you implement the inverse CDF method for random number generation? Assume that the pdf of the distribution exists. Implement your method.</p></li>
 </ol>
-<h2 id="q2.-acceptance-rejection-sampling">Q2. Acceptance-rejection sampling</h2>
+<h2 id="q3.-acceptance-rejection-sampling">Q3. Acceptance-rejection sampling</h2>
 <p>As an alternative to the Box-Muller or Marsaglia method, consider the following method of sampling a normal random variable using the absolute value <span class="math inline">\(X=|Z|\)</span> of a standard normal random variable <span class="math inline">\(Z\)</span>. 1. Find the probability density function <span class="math inline">\(f_X\)</span> of <span class="math inline">\(X\)</span>. 2. If <span class="math inline">\(g\)</span> is the probability density function of an exponential random variable with mean <span class="math inline">\(1\)</span>, find the smallest <span class="math inline">\(c &gt; 0\)</span> such that <span class="math display">\[
         \frac{f_X(x)}{g(x)} \le c, \quad \text{for all } x &gt; 0.
     \]</span> 3. Propose an algorithm that generate <span class="math inline">\(X\)</span>, the absolute value of the standard normal random variable <span class="math inline">\(Z\)</span>. 4. How would you generate <span class="math inline">\(Z\)</span>? 5. Implement your algorithm and test. 6. How efficient is your algorithm?</p>
-<h2 id="q3.-importance-sampling">Q3. Importance sampling</h2>
+<h2 id="q4.-importance-sampling">Q4. Importance sampling</h2>
 <p>Consider testing the hypotheses <span class="math inline">\(H_0: \lambda=2\)</span> versus <span class="math inline">\(H_a: \lambda&gt;2\)</span> using 25 observations from a Poisson(<span class="math inline">\(\lambda\)</span>) model. Rote application of the central limit theorem would suggest rejecting <span class="math inline">\(H_0\)</span> at <span class="math inline">\(\alpha=0.05\)</span> when <span class="math inline">\(Z &gt; 1.645\)</span>, where <span class="math inline">\(Z = \frac{\bar{X}-2}{\sqrt{2/25}}\)</span>.</p>
 <ol type="1">
 <li><p>Estimate the size of this test (i.e., the type I error rate) using three Monte Carlo approaches: standard, antithetic, (unstandardized) importance sampling. Provide a confidence interval for each estimate. Discuss the relative merits of each variance reduction technique.</p>

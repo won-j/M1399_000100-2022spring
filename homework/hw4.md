@@ -67,7 +67,7 @@ for $m = 2^{32}$, $a = 1103515245$, $c = 12345$, and for $m = 2048$, $a = 1229$,
 2. In case the inverse CDF $F^{-1}$ is not exclicitly available, can you implement the inverse CDF method for random number generation? Assume that the pdf of the distribution exists. Implement your method.
 
 
-## Q2. Acceptance-rejection sampling
+## Q3. Acceptance-rejection sampling
 As an alternative to the Box-Muller or Marsaglia method, consider the following method of sampling a normal random variable using the absolute value $X=|Z|$ of a standard normal random variable $Z$.
 1. Find the probability density function $f_X$ of $X$.
 2. If $g$ is the probability density function of an exponential random variable with mean $1$, find the smallest $c > 0$ such that
@@ -79,7 +79,7 @@ As an alternative to the Box-Muller or Marsaglia method, consider the following 
 5. Implement your algorithm and test.
 6. How efficient is your algorithm?
 
-## Q3. Importance sampling
+## Q4. Importance sampling
 
 Consider testing the hypotheses $H_0: \lambda=2$ versus $H_a: \lambda>2$ using 25 observations from a Poisson($\lambda$) model. Rote application of the central limit theorem would suggest rejecting $H_0$ at $\alpha=0.05$ when $Z > 1.645$, where $Z = \frac{\bar{X}-2}{\sqrt{2/25}}$.
 
