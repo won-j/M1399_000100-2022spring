@@ -12,5 +12,3 @@ install.packages("SparseM", dependencies=TRUE)
 install.packages("ggplot2", dependencies=TRUE)
 install.packages("statmod", dependencies=TRUE)
 install.packages('scatterplot3d', type='source') #
-install.packages("magick", type='source') #
-install.packages("animation", type='source') #
