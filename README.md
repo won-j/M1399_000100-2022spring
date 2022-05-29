@@ -68,10 +68,10 @@ The following schedule is tentative, and is subject to change over the course.
 | 9 (4/25, 4/27)    | Optimization [[notebook]](./lectures/lecture7/optim.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture7%2Foptim.ipynb) | 4장| [Homework 3](./homework/hw3.html)  | 2022-05-25 |
 | 10 (5/2, 5/4)   | Optimization  | 4장 |  |   |
 | 11 (5/9, 5/11)   | Numerical integration [[notebook]](./lectures/lecture8/integration.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture8%2Fintegration.ipynb)| 5장 |  |  |
-| 12 (5/16, 5/18)         | Numerical integration | 5장 |  |  |
-| 13 (5/23, 5/25)   | Random number generation [[notebook]](./lectures/lecture9/rng.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture9%2Frng.ipynb) | 8장 | [Homework 4]<!--(./homework/hw4.md) [[pdf]](./homework/hw4.pdf)--> | 2022-06-14 |
-| 14 (5/30, 6/1)    | Monte Carlo integration [[notebook]](./lectures/lecture10/mc.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture10%2Fmc.ipynb) | 9장 |  |  |
-| 15 (6/6, 6/8)     | Monte Carlo integration          |  |  |  |
-| 16 (6/13)         | Final Exam      |  |  |  |
+| 12 (5/16, 5/23)         | Numerical integration | 5장 |  |  |
+| 13 (5/30, 6/8)   | Random number generation [[notebook]](./lectures/lecture9/rng.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture9%2Frng.ipynb) | 8장 | [Homework 4](./homework/hw4.md) [[pdf]](./homework/hw4.pdf) | 2022-06-19 |
+| 14 (6/8)    | Monte Carlo integration [[notebook]](./lectures/lecture10/mc.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/won-j/M1399_000100-2022spring/HEAD?filepath=lectures%2Flecture10%2Fmc.ipynb) | 9장 |  |  |
+| 15 (6/13, 6/15)     | Monte Carlo integration          |  |  |  |
+| 16 (6/20)         | Final Exam      |  |  |  |
 
 
