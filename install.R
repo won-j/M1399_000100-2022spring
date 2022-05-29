@@ -1,5 +1,4 @@
 install.packages("lobstr")
-install.packages("devtools")
 devtools::install_github('coolbutuseless/uint8')
 install.packages("pryr")
 install.packages("gmp")
